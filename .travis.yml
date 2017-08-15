@@ -1,17 +1,23 @@
 sudo: required
 
+language: python
+
 services:
   - docker
 
-env:
-  - DOCKER_COMPOSE_VERSION=1.15.0
-
-before_install:
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
-
+#env:
+#  - DOCKER_COMPOSE_VERSION=1.15.0
+#
+#before_install:
+#  - sudo rm /usr/local/bin/docker-compose
+#  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+#  - chmod +x docker-compose
+#  - sudo mv docker-compose /usr/local/bin
+#
+#
+#script:
+#  - docker-compose up
 
 script:
-  - docker-compose up
+  - sudo docker build -t server_web .
+  - sudo docker run server_web python manage.py test --settings=server.settings_travis
