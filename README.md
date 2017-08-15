@@ -2,7 +2,7 @@
 
 ### Install Docker and Docker-Compose
 
-TODO: link to install_docker_compose
+[How To](etc/install_docker_docker-compose.md)
 
 ### Up Containers
 
@@ -22,3 +22,7 @@ you want to run your services in the background, you can pass the -d flag (for â
 ```
 # sudo docker-compose up -d
 ```
+
+### Test in brownser
+Access localhost:port (port is declared in .env file) by default in 80. 
+

@@ -3,7 +3,7 @@
 
 ## Install Docker Engine
 
-[Based on this article](http://linuxbsdos.com/2016/12/13/how-to-install-docker-and-run-docker-containers-on-linux-mint-1818-1/)
+[Reference](http://linuxbsdos.com/2016/12/13/how-to-install-docker-and-run-docker-containers-on-linux-mint-1818-1/)
 
 
 ### Enable Official Docker Repository on Linux Mint 18/18.1
@@ -64,5 +64,3 @@ Test the installation.
 ```
 $ sudo docker-compose --version
 ```
-
-
