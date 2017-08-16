@@ -1,13 +1,12 @@
 # noinspection PyUnresolvedReferences
-from server.settings import *
+from server.settings.default import *
 
 print("Using Settings Travis")
 
-# BASE_PROJECT = os.environ.get("TRAVIS_BUILD_DIR")
-# print("BaseProject %s" % BASE_PROJECT)
-
 ALLOWED_HOSTS = '*'
+
 CORS_ALLOW_CREDENTIALS = True
+
 CORS_ORIGIN_ALLOW_ALL = True
 
 DEBUG = True
