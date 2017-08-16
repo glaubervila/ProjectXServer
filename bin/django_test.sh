@@ -21,12 +21,19 @@ else
 fi
 
 
-echo "Running Tests"
+echo "Running Tests With Coverage"
 
-# If DJANGO_SETTING_MODULE run tests using this conf else run with defaults
-if [ -n ${DJANGO_SETTINGS_MODULE} ]; then
-    python manage.py test
+# If DJANGO_SETTING_MODULE run tests using this conf else run with settings.test
+if [ ${DJANGO_SETTINGS_MODULE} ];then
+
+    echo "Using ${DJANGO_SETTINGS_MODULE}"
+
+    coverage run manage.py test --settings=${DJANGO_SETTINGS_MODULE}
 
 else
-    python manage.py test --settings=${DJANGO_SETTINGS_MODULE}
+    coverage run manage.py test --settings=server.settings.test
+
 fi
+
+echo "Running Coveralls"
+coveralls

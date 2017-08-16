@@ -74,17 +74,7 @@ WSGI_APPLICATION = 'server.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'django',
-    #     'USER': 'root',
-    #     'PASSWORD': 'adminadmin',
-    #     'HOST': 'db',
-    #     'PORT': '3306',
-    #     'OPTIONS': {
-    #         'read_default_file': os.path.join(BASE_DIR, 'etc/my.cnf'),
-    #     }
-    # }
+
 }
 
 # Password validation
