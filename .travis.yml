@@ -25,5 +25,15 @@ services:
 #  - docker-compose up
 
 script:
+
+  # Build Docker Image
   - sudo docker build -t server_web .
+
+  - sudo docker run server_web /django_test.sh
+
+  # Run pep8 on all .py files in all subfolders
+#  - num_errors_before=`find . -name \*.py -exec pep8 --exclude=migrations {} + | wc -l`
+#  - echo PEP8 Errors [$num_errors_before]
+
+
   - sudo docker run server_web python manage.py test --settings=server.settings.travis
