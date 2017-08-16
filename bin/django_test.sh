@@ -9,9 +9,10 @@ echo "DJANGO MODULE ${DJANGO_SETTINGS_MODULE}"
 
 # Runing PEP8 recursive in all .py files
 #N_ERRORS=`find . -name \*.py -exec pep8 --exclude=migrations {} + | wc -l`
-N_ERRORS=`pep8 . | wc -l`
+N_ERRORS=$(pep8 . | wc -l)
 
-if [ ${N_ERRORS} -lt 0 ]; then
+if [ ${N_ERRORS} -eq 0 ]; then
+
 	echo -e "${GREEN}Success${NOCOLOR}: PEP8 not found errors"
 
 else
