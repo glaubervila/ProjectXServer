@@ -1,3 +1,6 @@
+# noinspection PyUnresolvedReferences
+from server.settings import *
+
 print("Using Settings Travis")
 
 # BASE_PROJECT = os.environ.get("TRAVIS_BUILD_DIR")

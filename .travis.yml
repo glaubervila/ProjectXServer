@@ -23,4 +23,4 @@ services:
 
 script:
   - sudo docker build -t server_web .
-  - sudo docker run server_web python manage.py test --settings=server.settings_travis
+  - sudo docker run server_web python manage.py test --settings=server.settings.travis
