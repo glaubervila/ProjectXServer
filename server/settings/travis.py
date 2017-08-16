@@ -1,5 +1,5 @@
 # noinspection PyUnresolvedReferences
-from server.settings.default import *
+from server.settings.defaults import *
 
 print("Using Settings Travis")
 
