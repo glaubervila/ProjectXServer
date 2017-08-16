@@ -6,34 +6,18 @@ python:
   - "3.6"
 
 env:
-  - DJANGO_SETTINGS_MODULE=server.settings.travis
+  - DJANGO_SETTINGS_MODULE=server.settings.test
 
 services:
   - docker
-
-#env:
-#  - DOCKER_COMPOSE_VERSION=1.15.0
-#
-#before_install:
-#  - sudo rm /usr/local/bin/docker-compose
-#  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-#  - chmod +x docker-compose
-#  - sudo mv docker-compose /usr/local/bin
-#
-#
-#script:
-#  - docker-compose up
 
 script:
 
   # Build Docker Image
   - sudo docker build -t server_web .
 
+  # Run tests describes in bin/django_test
   - sudo docker run server_web /django_test.sh
-
-
-
-  #- sudo docker run server_web python manage.py test --settings=server.settings.travis
 
 #after_script:
 #  - sudo docker rm server_web

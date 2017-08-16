@@ -5,10 +5,7 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NOCOLOR='\033[0m'
 
-echo "DJANGO MODULE ${DJANGO_SETTINGS_MODULE}"
-
-# Runing PEP8 recursive in all .py files
-#N_ERRORS=`find . -name \*.py -exec pep8 --exclude=migrations {} + | wc -l`
+echo "Running PEP8 checks"
 N_ERRORS=$(pep8 . | wc -l)
 
 if [ ${N_ERRORS} -eq 0 ]; then
@@ -17,7 +14,19 @@ if [ ${N_ERRORS} -eq 0 ]; then
 
 else
     echo -e "${RED}ERROR${NOCOLOR}: PEP8 encountered ${N_ERRORS} errors."
+    # Running PEP8 again to display errors
     pep8 .
+    # Mark build proccess with error
     exit 1
 fi
 
+
+echo "Running Tests"
+
+# If DJANGO_SETTING_MODULE run tests using this conf else run with defaults
+if [ -n ${DJANGO_SETTINGS_MODULE} ]; then
+    python manage.py test
+
+else
+    python manage.py test --settings=${DJANGO_SETTINGS_MODULE}
+fi

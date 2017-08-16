@@ -1,7 +1,7 @@
 # noinspection PyUnresolvedReferences
 from server.settings.defaults import *
 
-print("Using Settings Travis")
+print("Using Settings Test")
 
 ALLOWED_HOSTS = '*'
 
