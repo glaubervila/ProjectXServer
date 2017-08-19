@@ -21,6 +21,6 @@ EXPOSE 8000
 WORKDIR /app
 
 # CMD specifcies the command to execute to start the server running.
-CMD ["./django_start.sh"]
+CMD ["/django_start.sh"]
 
 # done!
