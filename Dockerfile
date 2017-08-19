@@ -13,7 +13,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app
 
 # COPY startup script into known file location in container
-COPY start_django.sh /start_django.sh
+COPY bin /
 
 # EXPOSE port 8000 to allow communication to/from server
 EXPOSE 8000
@@ -21,6 +21,6 @@ EXPOSE 8000
 WORKDIR /app
 
 # CMD specifcies the command to execute to start the server running.
-CMD ["./start_django.sh"]
+CMD ["/django_start.sh"]
 
 # done!

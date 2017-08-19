@@ -1,0 +1,24 @@
+sudo: required
+
+language: python
+
+python:
+  - "3.6"
+
+env:
+  - DJANGO_SETTINGS_MODULE=server.settings.test
+
+services:
+  - docker
+
+script:
+
+  # Build Docker Image
+  - sudo docker build -t server_web .
+
+  # Run tests describes in bin/django_test
+  - sudo docker run server_web /django_test.sh
+
+#after_script:
+#  - sudo docker rm server_web
+
